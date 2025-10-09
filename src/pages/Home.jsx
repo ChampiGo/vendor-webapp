@@ -1,12 +1,13 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import OwnerDashboard from "../components/OwnerDashboard";
+import { Navigate } from "react-router-dom";
 
 function Home() {
-  const { userData } = useSelector((state) => state.user);
+  const { myShopData } = useSelector((state) => state.owner);
+
   return (
-    <div className="w-[100vw] min-h-[100vh] pt-[100px] flex flex-col items-center bg-[#fff9f6]">
-      {userData.role == "owner" && <OwnerDashboard />}
+    <div className="w-[100vw] min-h-[100vh] bg-[#fff9f6]">
+      {myShopData ? <OwnerDashboard /> : <Navigate to="/restaurant-info" />}
     </div>
   );
 }

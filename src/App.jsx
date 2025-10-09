@@ -20,9 +20,13 @@ import Shop from "./pages/Shop";
 import { useEffect } from "react";
 import { io } from "socket.io-client";
 import { setSocket } from "./redux/userSlice";
+import Onboarding from "./pages/Onboarding";
+import RestaurantInfo from "./pages/RestaurantInfo";
+import Success from "./pages/Success";
+import LandingPage from "./pages/LandingPage";
 
-// export const serverUrl = "http://localhost:8000";
-export const serverUrl = import.meta.env.VITE_API_URL;
+export const serverUrl = "http://localhost:8000";
+// export const serverUrl = import.meta.env.VITE_API_URL;
 function App() {
   const { userData } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -65,6 +69,16 @@ function App() {
         path="/"
         element={userData ? <Home /> : <Navigate to={"/signin"} />}
       />
+
+      <Route
+        path="/onboarding"
+        element={userData ? <Onboarding /> : <Navigate to={"/signin"} />}
+      />
+      <Route
+        path="/restaurant-info"
+        element={userData ? <RestaurantInfo /> : <Navigate to={"/signin"} />}
+      />
+
       <Route
         path="/create-edit-shop"
         element={userData ? <CreateEditShop /> : <Navigate to={"/signin"} />}
@@ -87,6 +101,9 @@ function App() {
         path="/shop/:shopId"
         element={userData ? <Shop /> : <Navigate to={"/signin"} />}
       />
+
+      <Route path="/success" element={<Success />} />
+      <Route path="/landing-page" element={<LandingPage />} />
     </Routes>
   );
 }
