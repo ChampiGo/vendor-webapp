@@ -98,22 +98,26 @@ function Nav() {
           {userData?.fullName.slice(0, 1)}
         </div>
         {showInfo && (
-          <div
-            className={`fixed top-[80px] right-[10px] 
-                    ${
-                      userData.role == "deliveryBoy"
-                        ? "md:right-[20%] lg:right-[40%]"
-                        : "md:right-[10%] lg:right-[25%]"
-                    } w-[180px] bg-white shadow-2xl rounded-xl p-[20px] flex flex-col gap-[10px] z-[9999]`}
-          >
-            <div className="text-[17px] font-semibold">{userData.fullName}</div>
-
-            <div
-              className="text-[#ff4d2d] font-semibold cursor-pointer"
-              onClick={handleLogOut}
-            >
-              Log Out
+          <div className="fixed top-[80px] right-[10px] md:right-[10%] lg:right-[25%] w-[180px] bg-white shadow-2xl rounded-xl p-[20px] flex flex-col gap-[10px] z-[9999]">
+            <div className="text-[17px] font-semibold">
+              {userData?.fullName}
             </div>
+
+            {userData ? (
+              <div
+                className="text-[#ff4d2d] font-semibold cursor-pointer"
+                onClick={handleLogOut}
+              >
+                Log Out
+              </div>
+            ) : (
+              <div
+                className="text-[#ff4d2d] font-semibold cursor-pointer"
+                onClick={() => navigate("/signin")}
+              >
+                Login
+              </div>
+            )}
           </div>
         )}
       </div>
