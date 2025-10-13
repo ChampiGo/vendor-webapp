@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <div className="w-[100vw] min-h-[100vh] bg-[#fff9f6]">
-      {myShopData ? <OwnerDashboard /> : <Navigate to="/restaurant-info" />}
+      {myShopData ? <OwnerDashboard /> : <Navigate to="/onboarding/step1" />}
     </div>
   );
 }

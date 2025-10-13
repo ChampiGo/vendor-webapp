@@ -10,21 +10,21 @@ const Onboarding = () => {
       title: "Restaurant information",
       description: "Add basic details about your restaurant",
       completed: false,
-      route: "/restaurant-info",
+      route: "/onboarding/step1",
     },
     {
       id: 2,
       title: "Menu & Pricing",
       description: "Upload your menu and set prices",
       completed: false,
-      route: "/menu",
+      route: "/onboarding/step2",
     },
     {
       id: 3,
       title: "Bank Details",
       description: "Add account for payments",
       completed: false,
-      route: "/bank-details",
+      route: "/onboarding/step3",
     },
   ];
 

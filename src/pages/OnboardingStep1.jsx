@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChevronLeft, MapPin } from "lucide-react";
 import { toast } from "../hooks/useToast";
 
-const RestaurantInfo = () => {
+const OnboardingStep1 = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 3;
@@ -372,4 +372,4 @@ const RestaurantInfo = () => {
   );
 };
 
-export default RestaurantInfo;
+export default OnboardingStep1;

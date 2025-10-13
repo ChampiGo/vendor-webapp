@@ -20,9 +20,10 @@ import { useEffect } from "react";
 import { io } from "socket.io-client";
 import { setSocket } from "./redux/userSlice";
 import Onboarding from "./pages/Onboarding";
-import RestaurantInfo from "./pages/RestaurantInfo";
 import Success from "./pages/Success";
 import LandingPage from "./pages/LandingPage";
+import OnboardingStep1 from "./pages/OnboardingStep1";
+import OnboardingStep2 from "./pages/OnboardingStep2";
 
 export const serverUrl = "http://localhost:8000";
 // export const serverUrl = import.meta.env.VITE_API_URL;
@@ -74,8 +75,13 @@ function App() {
         element={userData ? <Onboarding /> : <Navigate to={"/signin"} />}
       />
       <Route
-        path="/restaurant-info"
-        element={userData ? <RestaurantInfo /> : <Navigate to={"/signin"} />}
+        path="/onboarding/step1"
+        element={userData ? <OnboardingStep1 /> : <Navigate to={"/signin"} />}
+      />
+
+      <Route
+        path="/onboarding/step2"
+        element={userData ? <OnboardingStep2 /> : <Navigate to={"/signin"} />}
       />
 
       <Route
